@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <style>
+.card{
+
+    border: none;
+}
+.card-body{
+border-radius: 15px;
+border: 1px solid rgba(230, 218, 218, 0.767);
+margin-top: -10px;
+background-color: white;
+
+}
+
+    </style>
+</head>
+<body>
+    
+<div class="container">
+
+
+
+    <div id="publicaciones" class="publicaciones d-flex mt-5 gap-5 flex-wrap">
+        
+        
+        
+    
+        </div>
+    
+    
+    </div>
+
+
+
+<script>
+
+
+    
+    let servicio = "https://jsonplaceholder.typicode.com/todos";
+    
+    buscar();
+    function buscar(){
+    
+    fetch(servicio)
+    .then(response => response.json())
+    .then(obj => listar (obj))
+    
+    }
+    
+    function listar (obj){
+        console.log(obj)
+    }
+    
+    // console.log(buscar() );
+    
+    // fetch (`${servicios}/todos`).then();
+    
+    function listar(publicaciones){
+    
+    
+    /*console.log(publicaciones);
+    
+    //let a = publicaciones.find(p => p.id == 3)
+    
+    //El otro codigo de hacerlo
+    
+    let pubconFiltro = publicaciones.filter(p => p.title.includes("et"))
+    console.log(pubconFiltro)
+    
+    
+    let existe = publicaciones.some(p=> p.id ==200)
+    console.log(existe)
+    
+    
+}
+*/
+
+let DivPublicaciones = document.getElementById("publicaciones");
+
+   for (p of publicaciones){
+      
+    DivPublicaciones.innerHTML+= ` 
+    
+    <div class="card" style="width: 18rem;">
+                <img src="../practica/YMNHO5ZZRNHAHKVPBBEYL7EGXA.webp" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">${p.title} ${p.id}</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
+
+    `
+
+   }
+}
+
+
+</script>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+</body>
+</html>
